@@ -1,41 +1,42 @@
 // Implemente aqui as funções
 
-function heightFunction(gender, height){
+function heightTest(gender, height){
     if (gender == 'male'){
         return height >= 1.70;
     } 
     return height >= 1.60;
 }
 
-function barFunction(gender, barReps, barSeconds){
+function barTest(gender, barReps, barSeconds){
     if (gender == 'male'){
         return barReps >= 6 || barSeconds >= 15;
     }
     return barReps >= 5 || barSeconds >= 12;
 }
 
-function absFunction(abs){
+function absTest(abs){
     return abs >= 41;
 }
 
-function runFunction(gender, runDistance, runTime){
+function runTest(gender, runDistance, runTime){
     if (gender == 'male'){
         return ((runDistance >= 3000 && runTime <= 720) || (runDistance >= 5000 && runTime <= 1200));
     }
     return ((runDistance >= 4000 && runTime <= 900) || (runDistance >= 6000 && runTime <= 1320));
 }
 
-function swimFunction(swimDistance, swimTime, diveTime){
+function swimTest(swimDistance, swimTime, diveTime){
     return ((swimDistance >= 100 && swimTime <= 60) || diveTime <= 30);
 }
 
 function areCandidateResultsValid(gender, height, barReps, barSeconds, abs, runDistance, runTime, swimDistance, swimTime, diveTime){
-    let heightVar = heightFunction(gender, height);
-    let barVar = barFunction(gender, barReps, barSeconds);
-    let absVar = absFunction(abs);
-    let runVar = runFunction(gender, runDistance, runTime);
-    let swimVar = swimFunction(swimDistance, swimTime, diveTime);
-    return (heightVar && barVar && absVar && runVar && swimVar);
+    let heightResult = heightTest(gender, height);
+    let barResult = barTest(gender, barReps, barSeconds);
+    let absResult = absTest(abs);
+    let runResult = runTest(gender, runDistance, runTime);
+    let swimResult = swimTest(swimDistance, swimTime, diveTime);
+    
+    return (heightResult && barResult && absResult && runResult && swimResult);
 }
 
 // Chamando a função com os parametros recebidos via script de teste
